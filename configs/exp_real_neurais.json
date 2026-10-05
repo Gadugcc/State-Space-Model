@@ -1,0 +1,68 @@
+{
+  "seed": 42,
+  "device": "auto",
+  "data": {
+    "type": "csv",
+    "path": "dados/electricity_mt320.csv",
+    "column": "y",
+    "_comentario": "Série real: Electricity (UCI), cliente 320, horária. Gerada pelo notebook 04."
+  },
+  "experiment": {
+    "context_lengths": [
+      24,
+      48,
+      96,
+      168,
+      336,
+      720
+    ],
+    "horizon": 1,
+    "train_ratio": 0.7,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.2,
+    "train_stride": 2,
+    "_comentario_stride": "train_stride=2 usa 1 janela de treino a cada 2 (janelas vizinhas são quase iguais): metade do tempo por época. Com GPU, pode usar 1."
+  },
+  "training": {
+    "epochs": 25,
+    "batch_size": 32,
+    "learning_rate": 0.002,
+    "weight_decay": 0.0,
+    "patience": 6,
+    "instance_norm": true,
+    "_comentario": "patience=6: para se a validação não melhorar por 6 épocas e volta para o melhor modelo. instance_norm: tira a média de cada janela (RevIN)."
+  },
+  "output": {
+    "directory": "results",
+    "run_name": "exp_real_neurais"
+  },
+  "models": [
+    {
+      "name": "lstm",
+      "params": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout": 0.0
+      }
+    },
+    {
+      "name": "ssm",
+      "params": {
+        "state_size": 32,
+        "d_model": 32,
+        "num_layers": 2
+      }
+    },
+    {
+      "name": "mamba",
+      "params": {
+        "d_model": 16,
+        "d_state": 8,
+        "d_conv": 4,
+        "expand": 2,
+        "dt_rank": 4,
+        "num_layers": 1
+      }
+    }
+  ]
+}

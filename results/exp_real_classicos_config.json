@@ -1,0 +1,52 @@
+{
+  "seed": 42,
+  "device": "auto",
+  "data": {
+    "type": "csv",
+    "path": "dados/electricity_mt320.csv",
+    "column": "y",
+    "_comentario": "Série real: Electricity (UCI), cliente 320, horária. Gerada pelo notebook 04."
+  },
+  "experiment": {
+    "context_lengths": [
+      24,
+      48,
+      96,
+      168,
+      336,
+      720
+    ],
+    "horizon": 1,
+    "train_ratio": 0.7,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.2,
+    "train_stride": 1
+  },
+  "training": {
+    "epochs": 12,
+    "batch_size": 64,
+    "learning_rate": 0.002,
+    "weight_decay": 0.0,
+    "patience": 4
+  },
+  "output": {
+    "directory": "results",
+    "run_name": "exp_real_classicos"
+  },
+  "models": [
+    {
+      "name": "linear_regression",
+      "params": {
+        "fit_intercept": true
+      }
+    },
+    {
+      "name": "arima",
+      "params": {
+        "p": 24,
+        "d": 0,
+        "q": 2
+      }
+    }
+  ]
+}

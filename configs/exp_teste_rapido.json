@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "device": "auto",
+  "data": {
+    "type": "csv",
+    "path": "dados/serie_sintetica.csv",
+    "column": "y",
+    "dependencies": [
+      {
+        "lag": 1,
+        "coefficient": 0.4
+      },
+      {
+        "lag": 24,
+        "coefficient": 0.3
+      },
+      {
+        "lag": 168,
+        "coefficient": 0.2
+      },
+      {
+        "lag": 720,
+        "coefficient": 0.1
+      }
+    ],
+    "_comentario": "dependencies só é usado pelo 'oracle' (previsão com a fórmula verdadeira). Deve ser igual ao do notebook 01."
+  },
+  "experiment": {
+    "context_lengths": [
+      24,
+      48
+    ],
+    "horizon": 1,
+    "train_ratio": 0.7,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.2,
+    "train_stride": 8
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 64,
+    "learning_rate": 0.002,
+    "weight_decay": 0.0,
+    "patience": 4
+  },
+  "output": {
+    "directory": "results/teste_rapido",
+    "run_name": "teste_rapido"
+  },
+  "models": [
+    {
+      "name": "lstm",
+      "params": {
+        "hidden_size": 64,
+        "num_layers": 2,
+        "dropout": 0.0
+      }
+    },
+    {
+      "name": "ssm",
+      "params": {
+        "state_size": 32,
+        "d_model": 32,
+        "num_layers": 2
+      }
+    },
+    {
+      "name": "mamba",
+      "params": {
+        "d_model": 16,
+        "d_state": 8,
+        "d_conv": 4,
+        "expand": 2,
+        "dt_rank": 4,
+        "num_layers": 1
+      }
+    }
+  ]
+}

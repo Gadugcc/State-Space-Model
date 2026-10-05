@@ -1,0 +1,93 @@
+[
+  {
+    "model": "linear_regression",
+    "context_length": 24,
+    "mae": 100.74437942349788,
+    "rmse": 148.54417693927942,
+    "mse": 22065.372502567952,
+    "train_time_s": 0.0277324929999736,
+    "inference_time_s": 0.000729703000047266,
+    "parameters": 25,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "linear_regression",
+    "context_length": 48,
+    "mae": 89.3764863574245,
+    "rmse": 136.36575208220347,
+    "mse": 18595.618340944977,
+    "train_time_s": 0.04711063799999238,
+    "inference_time_s": 0.0009071910000102434,
+    "parameters": 49,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "linear_regression",
+    "context_length": 96,
+    "mae": 85.71997606451167,
+    "rmse": 131.03118786155665,
+    "mse": 17169.172192410548,
+    "train_time_s": 0.1034989809999729,
+    "inference_time_s": 0.015235055999994529,
+    "parameters": 97,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "linear_regression",
+    "context_length": 168,
+    "mae": 79.59546142833993,
+    "rmse": 123.83910273116203,
+    "mse": 15336.123365259302,
+    "train_time_s": 0.19066787899998872,
+    "inference_time_s": 0.004231564000008348,
+    "parameters": 169,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "linear_regression",
+    "context_length": 336,
+    "mae": 75.60709505113316,
+    "rmse": 118.78351895023397,
+    "mse": 14109.524374200591,
+    "train_time_s": 0.44065748300005225,
+    "inference_time_s": 0.00607057000001987,
+    "parameters": 337,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "linear_regression",
+    "context_length": 720,
+    "mae": 74.29478379797823,
+    "rmse": 116.75543897311651,
+    "mse": 13631.832529805133,
+    "train_time_s": 1.098629389999985,
+    "inference_time_s": 0.013903056999993169,
+    "parameters": 721,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  },
+  {
+    "model": "arima",
+    "context_length": null,
+    "mae": 100.22771453857422,
+    "rmse": 147.9633017740379,
+    "mse": 21893.138671875,
+    "train_time_s": 242.30081523800004,
+    "inference_time_s": 1.1477933460000713,
+    "parameters": 28,
+    "best_val_loss": NaN,
+    "seed": 42,
+    "dependencies": "null"
+  }
+]

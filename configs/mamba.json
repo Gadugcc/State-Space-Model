@@ -1,0 +1,61 @@
+{
+  "seed": 42,
+  "device": "auto",
+  "data": {
+    "type": "univariate",
+    "n_samples": 12000,
+    "warmup": 2000,
+    "dependencies": [
+      {
+        "lag": 1,
+        "coefficient": 0.38
+      },
+      {
+        "lag": 24,
+        "coefficient": 0.285
+      },
+      {
+        "lag": 168,
+        "coefficient": 0.19
+      },
+      {
+        "lag": 720,
+        "coefficient": 0.095
+      }
+    ],
+    "noise_std": 0.1
+  },
+  "experiment": {
+    "context_lengths": [
+      24,
+      168,
+      720
+    ],
+    "horizon": 1,
+    "train_ratio": 0.7,
+    "validation_ratio": 0.1,
+    "test_ratio": 0.2
+  },
+  "model": {
+    "name": "mamba",
+    "params": {
+      "d_model": 16,
+      "d_state": 8,
+      "d_conv": 4,
+      "expand": 2,
+      "dt_rank": 4,
+      "num_layers": 1
+    }
+  },
+  "training": {
+    "epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "patience": 5
+  },
+  "output": {
+    "directory": "results",
+    "run_name": "mamba"
+  }
+}

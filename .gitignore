@@ -1,0 +1,53 @@
+# ============================================================
+# Seminário SSM · o que NÃO sobe para o repositório
+# ============================================================
+
+# ---------- Ambiente e caches do Python / Jupyter ----------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# ---------- Versões antigas e entregas avulsas ----------
+# backup do código original, antes da reescrita
+_original_backup/
+# zip antigo de entrega (o zip final é gerado na hora de entregar)
+*.zip
+# pasta de slides antiga (os slides vivem no deck online)
+slides/
+
+# ---------- Rodadas exploratórias (cenários A/B, painel, ablação) ----------
+# usadas só para montar figuras da primeira versão da apresentação
+make_figures.py
+export_dados.py
+run_partes.py
+configs/all_models*.json
+configs/cenarioB_*.json
+configs/panel_regression.json
+dados/serie_cenarioA.csv
+dados/serie_cenarioB.csv
+dados/serie_painel.csv
+results/cenarioA_*
+results/cenarioB_*
+results/panel_regression_*
+results/partes/
+results/teste_rapido/
+results/figuras/fig*_*.png
+results/figuras/tabela_resumo.csv
+results/figuras/classicos_zoom_previsao.png
+
+# ---------- Arquivos intermediários e regeráveis ----------
+# partes de cada (modelo, contexto); o run_neurais.py junta tudo em results/exp_*
+results/partes_*/
+# cópia da série salva a cada rodada (a série fica em dados/)
+results/*_series.npy
+# dado bruto do Electricity (18 MB); o notebook 04 baixa sozinho
+dados/reais/
+
+# ---------- Opcional ----------
+# As figuras em results/figuras/ são regeradas pelos notebooks 02, 03 e 05.
+# Para não subi-las também, descomente a linha abaixo:
+# results/figuras/
